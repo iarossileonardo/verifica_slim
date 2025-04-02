@@ -118,7 +118,7 @@ class CertificazioniController
         return $response->withHeader("Content-Type", "application/json")->withStatus(200);
     } else {
         $response->getBody()->write(json_encode(array("message" => "not found")));
-        return $response->withHeader("Content-Type", "application/json")->withStatus(400);
+        return $response->withHeader("Content-Type", "application/json")->withStatus(404);
       }
   }
 

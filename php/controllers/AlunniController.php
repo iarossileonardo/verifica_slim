@@ -51,11 +51,11 @@ class AlunniController
     $raw_query = "INSERT INTO alunni (nome, cognome) VALUES ('$data[nome]', '$data[cognome]');";
     $result = $mysqli_connection->query($raw_query);
     if ($result && $mysqli_connection->affected_rows > 0) {
-      $response->getBody()->write(json_encode(array("message" => "success")));
+      $response->getBody()->write(json_encode(array("message" => "created")));
     } else {
       $response->getBody()->write(json_encode(array("message" => $mysqli_connection->error)));
     }
-    return $response->withHeader("Content-Type", "application/json")->withStatus(200);
+    return $response->withHeader("Content-Type", "application/json")->withStatus(201);
   }
 
   public function update(Request $request, Response $response, $args)
